@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-S">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Lesion Analyzer</title>
+    <link rel="stylesheet" href="frontend-static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="nav-back" style="visibility: hidden;"><</div>
+            <div class="header-title">Input</div>
+            <div class="header-icons">
+                <img id="historyButton" src="frontend-static/history_icon.png" alt="History" title="View History" class="history-icon">
+                <img src="frontend-static/doctor_icon.png" alt="Doctor Icon" class="doctor-icon">
+            </div>
+        </header>
+
+        <main id="input-screen">
+            <h1>Enter Patient Details</h1>
+            <form id="patient-form">
+                <div class="form-group">
+                    <label for="patientName">Patient Name</label>
+                    <input type="text" id="patientName" name="patientName" placeholder="e.g., John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender</label>
+                    <div class="button-options-group gender-options">
+                        <button type="button" class="option-btn gender-btn" data-value="female">Female</button>
+                        <button type="button" class="option-btn gender-btn" data-value="male">Male</button>
+                        <button type="button" class="option-btn gender-btn" data-value="other">Other</button>
+                    </div>
+                    <input type="hidden" id="gender" name="gender" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Age</label>
+                    <div class="age-selector">
+                        <button type="button" class="age-adjust-btn" id="ageDecrement5">-5</button>
+                        <button type="button" class="age-adjust-btn" id="ageDecrement1">-1</button>
+                        <span id="ageDisplay" class="age-display-value">40</span> <!-- Default age -->
+                        <button type="button" class="age-adjust-btn" id="ageIncrement1">+1</button>
+                        <button type="button" class="age-adjust-btn" id="ageIncrement5">+5</button>
+                    </div>
+                    <input type="hidden" id="age" name="age" value="40"> <!-- Hidden input to store age -->
+                </div>
+
+                <div class="form-group">
+                    <label>Lesion Location</label>
+                    <div class="button-options-group lesion-location-options">
+                        <!-- Buttons will be dynamically added by JavaScript -->
+                    </div>
+                    <input type="hidden" id="lesionLocation" name="lesionLocation" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="lesionImage">Lesion Image</label>
+                    <input type="file" id="lesionImage" name="lesionImage" accept="image/*" required>
+                    <img id="imagePreview" src="#" alt="Image Preview" style="display:none;"/>
+                </div>
+                <button type="submit" class="process-button">PROCESS</button>
+                <div class="loader" style="display:none;"></div>
+            </form>
+        </main>
+
+        <!-- Output Screen and History Screen remain the same -->
+        <main id="output-screen" style="display:none;">
+            <h1>Report for <span id="outputPatientName"></span></h1>
+            <div class="output-content">
+                <div class="output-image-container">
+                    <img id="uploadedImageOutput" src="#" alt="Uploaded Lesion">
+                </div>
+                <div class="output-text-container">
+                    <p id="reportDiagnosis"></p>
+                    <div class="confidence-visual">
+                        <span>Confidence:</span>
+                        <div class="confidence-bar-container">
+                            <div id="confidenceBar" class="confidence-bar"></div>
+                        </div>
+                        <span id="confidenceValue"></span>
+                    </div>
+                    <p id="generatedReport"></p>
+                </div>
+            </div>
+        </main>
+
+        <main id="history-screen" style="display:none;">
+            <h1>Patient History</h1>
+            <div class="history-search">
+                <input type="text" id="historySearchName" placeholder="Search by patient name...">
+                <button id="searchHistoryBtn">Search</button>
+            </div>
+            <div id="historyTableContainer">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Diagnosis</th>
+                            <th>Image</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTableBody">
+                        <!-- History records will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+             <div class="no-history" style="display:none;">No records found.</div>
+        </main>
+
+    </div>
+    <script src="frontend-static/script.js"></script>
+</body>
+</html>

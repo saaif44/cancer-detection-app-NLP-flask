@@ -1,0 +1,449 @@
+/* frontend/style.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #4A5C59; /* Dark green-gray from screenshot */
+    color: #E0E0E0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top for scrollable content */
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #3E4C49; /* Slightly different from body for depth */
+    border-radius: 12px;
+    padding: 25px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #5a6e6a;
+}
+
+.nav-back {
+    font-size: 1.5em; /* Larger back arrow */
+    cursor: pointer;
+    color: #C0C0C0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+.nav-back:hover {
+    background-color: #5a6e6a;
+}
+
+
+.header-title {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+}
+.doctor-icon, .history-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #777;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.doctor-icon:hover, .history-icon:hover {
+    transform: scale(1.1);
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500; /* Medium weight */
+    color: #D0D0D0;
+    font-size: 0.95em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="file"] {
+    width: calc(100% - 22px); /* Account for padding */
+    padding: 12px 10px;
+    border: 1px solid #5a6e6a;
+    border-radius: 6px;
+    background-color: #F0F0F0; /* Lighter input fields */
+    color: #333333;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-group input[type="file"] {
+    background-color: #E8E8E8;
+    cursor: pointer;
+}
+.form-group input:focus {
+    outline: none;
+    border-color: #B74A54;
+    box-shadow: 0 0 0 2px rgba(183, 74, 84, 0.3);
+}
+#imagePreview {
+    max-width: 100%;
+    max-height: 200px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #6c7a78;
+    object-fit: cover;
+}
+
+.gender-options {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+.gender-btn {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #5a6e6a;
+    color: #E0E0E0;
+    border: 1px solid #6c7a78;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-size: 0.95em;
+}
+.gender-btn.selected {
+    background-color: #B74A54;
+    color: white;
+    border-color: #a04049;
+    font-weight: bold;
+}
+.gender-btn:not(.selected):hover {
+    background-color: #6c7a78;
+}
+
+
+.process-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #B74A54;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 10px; /* Space above button */
+}
+.process-button:hover {
+    background-color: #a04049;
+}
+.process-button:active {
+    transform: translateY(1px);
+}
+.process-button:disabled {
+    background-color: #777;
+    cursor: not-allowed;
+}
+
+/* Output Screen Specific Styles */
+#output-screen h1 {
+    font-size: 1.6em;
+}
+#output-screen h1 #outputPatientName {
+    font-weight: bold;
+    color: #ffc107; /* Highlight patient name */
+}
+
+
+.output-content {
+    background-color: #FFFFFF;
+    color: #333333;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.output-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #F8F9FA;
+    border-radius: 6px;
+    border: 1px solid #E0E0E0;
+}
+
+.output-image-container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 280px;
+    border-radius: 4px;
+}
+
+.output-text-container p {
+    background-color: #F9F9F9;
+    color: #212529;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.05em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: left;
+    border: 1px solid #E0E0E0;
+}
+#reportDiagnosis {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #B74A54; /* Highlight diagnosis */
+}
+
+.confidence-visual {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+.confidence-visual span:first-child {
+    margin-right: 8px;
+    font-weight: 500;
+}
+.confidence-bar-container {
+    flex-grow: 1;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden; /* For rounded corners on the bar itself */
+    margin-right: 8px;
+}
+.confidence-bar {
+    height: 100%;
+    background-color: #4CAF50; /* Green for high confidence */
+    width: 0%; /* Will be set by JS */
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+#confidenceValue {
+    font-weight: bold;
+}
+
+
+/* Loader */
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #B74A54;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* History Screen */
+#history-screen h1 {
+    font-size: 1.6em;
+}
+.history-search {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+#historySearchName {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #5a6e6a;
+    border-radius: 6px;
+    background-color: #F0F0F0;
+    color: #333333;
+}
+#searchHistoryBtn {
+    padding: 10px 15px;
+    background-color: #5a6e6a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+#searchHistoryBtn:hover {
+    background-color: #6c7a78;
+}
+
+#historyTableContainer {
+    max-height: 400px; 
+    overflow-y: auto;
+    background-color: #F8F9FA;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    color: #333;
+}
+#historyTableContainer table {
+    width: 100%;
+    border-collapse: collapse;
+}
+#historyTableContainer th, #historyTableContainer td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+#historyTableContainer th {
+    background-color: #e9ecef;
+    font-weight: 600;
+    position: sticky; /* Make header sticky */
+    top: 0;
+    z-index: 1;
+}
+#historyTableContainer td img.history-thumbnail {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.no-history {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #aaa;
+}
+
+/* Modal for viewing full history image */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+}
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* frontend/style.css */
+
+/* General styles for button-based option groups */
+.button-options-group {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap to next line */
+    gap: 8px; /* Space between buttons */
+}
+
+.option-btn { /* Common style for gender, lesion location buttons */
+    padding: 10px 12px;
+    background-color: #5a6e6a; /* Default button background */
+    color: #E0E0E0;
+    border: 1px solid #6c7a78;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    font-size: 0.9em; /* Slightly smaller for more buttons */
+    text-align: center;
+    flex-grow: 1; /* Allow buttons to grow if space available */
+    min-width: 80px; /* Minimum width for smaller buttons */
+}
+
+.option-btn.selected {
+    background-color: #B74A54; /* Selected state background */
+    color: white;
+    border-color: #a04049;
+    font-weight: bold;
+}
+
+.option-btn:not(.selected):hover {
+    background-color: #6c7a78; /* Hover for non-selected */
+}
+
+
+.lesion-location-btn {
+    flex-grow: 0; /* Don't grow as much if many */
+    padding: 8px 10px;
+}
+
+
+/* Age Selector Styles */
+.age-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribute space */
+    gap: 8px; /* Space between elements */
+    padding: 8px;
+    background-color: #5a6e6a; /* Background for the whole selector */
+    border-radius: 6px;
+}
+
+.age-adjust-btn {
+    background-color: #6c7a78;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    min-width: 40px; 
+    text-align: center;
+    transition: background-color 0.2s;
+}
+.age-adjust-btn:hover {
+    background-color: #7d8c8a;
+}
+.age-adjust-btn:active {
+    background-color: #B74A54; /* Color on click */
+}
+
+.age-display-value {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding: 0 10px; /* Space around the number */
+    min-width: 30px; /* To prevent jumping when number changes width */
+    text-align: center;
+}
