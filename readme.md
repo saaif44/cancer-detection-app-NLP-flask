@@ -99,6 +99,7 @@ pip install -r requirements.txt
 5. Train the ML Model (Optional)
 Update BASE_DATA_DIR in train_model.py to point to your dataset path, then:
 ```
+#optional because we already have the trained model
 python train_model.py
 ```
 This will generate:
