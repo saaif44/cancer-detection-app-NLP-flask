@@ -91,8 +91,12 @@ venv\Scripts\activate
 ```
 # macOS/Linux
 ```
-python3 -m venv venv
-source venv/bin/activate
+# install python 3.10 if not already installed
+py -3.10 -m venv venv
+venv\Scripts\activate
+pip install --upgrade pip
+pip install tensorflow
+
 ```
 4. Install Dependencies
 ```
