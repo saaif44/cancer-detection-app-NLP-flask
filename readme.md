@@ -86,17 +86,11 @@ cd cancer-detection-app-NLP-flask
 3. Create and Activate Virtual Environment
 # Windows
 ```bash
-python -m venv venv
-venv\Scripts\activate
-```
-# macOS/Linux
-```
 # install python 3.10 if not already installed
 py -3.10 -m venv venv
 venv\Scripts\activate
 pip install --upgrade pip
 pip install tensorflow
-
 ```
 4. Install Dependencies
 ```
