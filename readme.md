@@ -16,7 +16,7 @@ A web-based skin lesion analysis tool using deep learning. This application allo
 ---
 
 ## 📁 Project Structure
-
+```
 skin-cancer-detector/
 ├── backend/
 │ ├── model/
@@ -37,7 +37,7 @@ skin-cancer-detector/
 ├── requirements.txt # Python dependencies
 ├── .gitignore
 └── README.md # This file
-
+```
 
 ---
 
@@ -82,19 +82,27 @@ skin-cancer-detector/
 ```bash
 git clone https://github.com/saaif44/cancer-detection-app-NLP-flask
 cd cancer-detection-app-NLP-flask
+```
 3. Create and Activate Virtual Environment
 # Windows
+```bash
 python -m venv venv
 venv\Scripts\activate
-
+```
 # macOS/Linux
+```
 python3 -m venv venv
 source venv/bin/activate
+```
 4. Install Dependencies
+```
 pip install -r requirements.txt
+```
 5. Train the ML Model (Optional)
 Update BASE_DATA_DIR in train_model.py to point to your dataset path, then:
+```
 python train_model.py
+```
 This will generate:
 
 backend/model/skin_lesion_classifier.keras
@@ -105,7 +113,9 @@ OR manually place pre-trained model files in the backend/model/ folder.
 
 🧪 Run the Application
 1. Start the Flask Server
+```
 python backend/app.py
+```
 2. Open in Browser
 Go to: http://127.0.0.1:5000/
 
